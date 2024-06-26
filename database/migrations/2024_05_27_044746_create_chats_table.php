@@ -12,8 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('chats', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->uuid('id');
+            $table->uuid('sender_id');
+            $table->enum('message_type', ['text', 'file'])->default('text');
+            $table->longText('message')->nullable();
+            $table->string('media')->nullable();
+            $table->uuid('chatable_id');
+            $table->string('chatable_type');
+            $table->timestamp('sender_read_at');
+            $table->timestamps('receiver_read_at');
         });
     }
 

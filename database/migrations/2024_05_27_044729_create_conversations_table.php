@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('conversations', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->foreignUuid('user1_id')->contrained('users');
+            $table->foreignUuid('user2_id')->contrained('users');
             $table->timestamps();
         });
     }
