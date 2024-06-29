@@ -1,4 +1,6 @@
-<?php namespace Sanmtos\Chat;
+<?php 
+
+namespace Sanmtos\Chat;
 
 class Chat
 {

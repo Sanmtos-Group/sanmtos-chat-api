@@ -22,6 +22,13 @@ class ChatServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'sanmtos-chat');
+        $this->loadFactoriesFrom(__DIR__ . '/../database/factories');
+
+        $this->configurePublishing();
 
     }
 
@@ -41,21 +48,10 @@ class ChatServiceProvider extends ServiceProvider
             __DIR__.'/../config/chat.php' => config_path('chat.php'),
         ], 'chat-config');
 
-        // $this->publishes([
-        //     __DIR__.'/../database/migrations/0001_01_01_000000_create_users_table.php' => database_path('migrations/0001_01_01_000000_create_users_table.php'),
-        // ], 'jetstream-migrations');
-
-        $this->publishesMigrations([
-            __DIR__.'/../database/migrations/2024_05_27_044729_create_conversations_table.php' => database_path('migrations/2024_05_27_044729_create_conversations_table.php'),
-            __DIR__.'/../database/migrations/2024_05_27_044746_create_chats_table.php' => database_path('migrations/2024_05_27_044746_create_chats_table.php'),
+        $this->publishes([
+            __DIR__.'/../database/migrations/2024_05_27_044729_create_sc_conversations_table.php' => database_path('migrations/2024_05_27_044729_create_sc_conversations_table.php'),
+            __DIR__.'/../database/migrations/2024_05_27_044746_create_sc_chats_table.php' => database_path('migrations/2024_05_27_044746_create_sc_chats_table.php'),
         ], 'chat-migrations');
-
-        $this->publishes([
-            __DIR__.'/../routes/api.php' => base_path('routes/chat_api.php'),
-        ], 'chat-api-routes');
-        $this->publishes([
-            __DIR__.'/../routes/web.php' => base_path('routes/chat_web.php'),
-        ], 'chat-web-routes');
 
     }
 

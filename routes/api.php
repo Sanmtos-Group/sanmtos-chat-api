@@ -1,6 +1,9 @@
 <?php
+
+namespace Sanmtos\Chat\Routes;
+
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('chat-api')->group(function () {
+Route::prefix('sc-api')->group(function () {
     
 });
