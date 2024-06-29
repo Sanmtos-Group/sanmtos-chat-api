@@ -5,7 +5,7 @@ namespace Sanmtos\Chat\Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SanmtosChatDatabaseSeeder extends Seeder
+class ChatDatabaseSeeder extends Seeder
 {
     /**
      * Seed the application's database.

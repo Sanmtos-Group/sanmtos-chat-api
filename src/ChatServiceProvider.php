@@ -53,6 +53,11 @@ class ChatServiceProvider extends ServiceProvider
             __DIR__.'/../database/migrations/2024_05_27_044746_create_sc_chats_table.php' => database_path('migrations/2024_05_27_044746_create_sc_chats_table.php'),
         ], 'chat-migrations');
 
+
+        $this->publishes([
+            __DIR__.'/../phpunit.xml' => base_path('phpunit.chat.xml'),
+        ], 'chat-phpunit');
+
     }
 
 }
